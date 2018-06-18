@@ -1,0 +1,7 @@
+[libs]
+[ignore]
+.*node_modules/fbjs.*
+.*node_modules/react-event-listener.*
+
+[options]
+module.system=haste
