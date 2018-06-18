@@ -1,0 +1,32 @@
+const merge = require('webpack-merge');
+const baseConfig = require('./webpack.base.config');
+const webpack = require('webpack'); // eslint-disable-line import/no-extraneous-dependencies
+const path = require('path');
+
+module.exports = merge(baseConfig, {
+    devtool: 'inline-source-map',
+    output: {
+        filename: 'test.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
+    // module: {
+    //     rules: [
+    //     //     { // Coverage reporter delays coverage til after tests are run, fixing transpiled source coverage error
+    //     //         enforce: 'post',
+    //     //         test: /\.js$/,
+    //     //         exclude: /(test|node_modules|bower_components)\//,
+    //     //         use: 'istanbul-instrumenter-loader',
+    //     //     },
+    //     // ],
+    // },
+    devServer: {
+        inline: true,
+        port: '3001',
+    },
+    watchOptions: {
+        aggregateTimeout: 300,
+        poll: 1000,
+        ignored: /node_modules/,
+    },
+    mode: 'development',
+});

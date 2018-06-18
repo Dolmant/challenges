@@ -1,0 +1,8 @@
+[libs]
+[ignore]
+.*node_modules/fbjs.*
+
+[options]
+module.name_mapper='.*\(.css\)' -> 'empty/object'
+module.name_mapper='.*\(.less\)' -> 'empty/object'
+module.system=haste
